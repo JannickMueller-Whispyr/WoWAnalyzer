@@ -2159,3 +2159,9 @@ export const Swolorno: Contributor = {
     },
   ],
 };
+export const Whispyr: Contributor = {
+  nickname: 'Whispyr',
+  github: 'JannickMueller-Whispyr',
+  discord: 'Whispyr#0001',
+  avatar: avatar('Whispyr-avatar.png'),
+};

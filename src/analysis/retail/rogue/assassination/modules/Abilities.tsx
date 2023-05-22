@@ -229,6 +229,20 @@ class Abilities extends CoreAbilities {
         },
       },
       {
+        spell: TALENTS.SEPSIS_TALENT.id,
+        category: SPELL_CATEGORY.COOLDOWNS,
+        cooldown: 90,
+        enabled: combatant.hasTalent(TALENTS.SEPSIS_TALENT),
+        gcd: {
+          base: 1000,
+        },
+        castEfficiency: {
+          recommendedEfficiency: 0.9,
+          averageIssueEfficiency: 0.8,
+          majorIssueEfficiency: 0.7,
+        },
+      },
+      {
         spell: TALENTS.COLD_BLOOD_TALENT.id,
         category: SPELL_CATEGORY.COOLDOWNS,
         cooldown: 45,
