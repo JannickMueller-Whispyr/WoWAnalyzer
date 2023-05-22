@@ -25,6 +25,7 @@ import FinisherUse from './modules/core/FinisherUse';
 import HitCountAoE from './modules/core/HitCountAoE';
 import Envenom from './modules/spells/Envenom';
 import Exsanguinate from './modules/talents/Exsanguinate';
+import Sepsis from './modules/talents/Sepsis';
 import ThistleTea from './modules/talents/ThistleTea';
 import Guide from './Guide';
 
@@ -63,6 +64,7 @@ class CombatLogParser extends CoreCombatLogParser {
     // Talents
     crimsonTempestUptimeAndSnapshots: CrimsonTempestUptimeAndSnapshots,
     exsanguinate: Exsanguinate,
+    sepsis: Sepsis,
     thistleTea: ThistleTea,
 
     // Racials
