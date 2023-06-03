@@ -19,6 +19,7 @@ import GarroteUptimeAndSnapshots from './modules/spells/GarroteUptimeAndSnapshot
 import RuptureUptimeAndSnapshots from './modules/spells/RuptureUptimeAndSnapshots';
 import CrimsonTempestUptimeAndSnapshots from './modules/talents/CrimsonTempestUptimeAndSnapshots';
 import CastLinkNormalizer from './normalizers/CastLinkNormalizer';
+import SepsisLinkNormalizer from './normalizers/SepsisLinkNormalizer';
 import DotUptimesAndSnapshots from './modules/features/DotUptimesAndSnapshots';
 import BuilderUse from './modules/core/BuilderUse';
 import FinisherUse from './modules/core/FinisherUse';
@@ -40,6 +41,7 @@ class CombatLogParser extends CoreCombatLogParser {
     // Normalizers
     castLinkNormalizer: CastLinkNormalizer,
     thistleTeaCastLinkNormalizer: ThistleTeaCastLinkNormalizer,
+    sepsisLinkNormalizer: SepsisLinkNormalizer,
 
     // Resource
     comboPointTracker: ComboPointTracker,
