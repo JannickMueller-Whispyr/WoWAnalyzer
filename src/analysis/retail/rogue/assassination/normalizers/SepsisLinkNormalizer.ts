@@ -13,10 +13,12 @@ import {
 const CONSUME_ON_CAST_BUFFER_MS = 200;
 const REAPPLY_BUFFER_MS = 200;
 const BUFF_GAIN_FROM_CAST_MS = 11 * 1000; // 11s buffer
+const SEPSIS_CAST_BUFFER = 4000;
 
 const CONSUMED_SEPSIS_BUFF = 'ConsumedSepsisBuff';
 const REAPPLY_SEPSIS_BUFF = 'ReapplySepsisBuff';
 const BUFF_GAIN_FROM_CAST = 'ApplySepsisBuffFromCast';
+const SEPSIS_CAST = 'SepsisCast'
 
 const EVENT_LINKS: EventLink[] = [
   {
@@ -123,6 +125,17 @@ const EVENT_LINKS: EventLink[] = [
     anyTarget: true,
     isActive: (c) => c.hasTalent(TALENTS.SEPSIS_TALENT),
   },
+  {
+    linkRelation: SEPSIS_CAST,
+    linkingEventId: TALENTS.SEPSIS_TALENT.id,
+    linkingEventType: EventType.Cast,
+    referencedEventId: TALENTS.SEPSIS_TALENT.id,
+    referencedEventType: EventType.Cast,
+    forwardBufferMs: 0,
+    backwardBufferMs: SEPSIS_CAST_BUFFER,
+    anyTarget: true,
+    isActive: (c) => c.hasTalent(TALENTS.SEPSIS_TALENT),
+  },
 ];
 
 export default class SepsisLinkNormalizer extends EventLinkNormalizer {
@@ -170,3 +183,9 @@ export const getSepsisBuffRemovalFromReapply = (
     .filter((e): e is RemoveBuffEvent => e.type === EventType.RemoveBuff)
     .at(0);
 };
+
+export function getPreviousSepsis(event: CastEvent): CastEvent | undefined {
+  return GetRelatedEvents(event, SEPSIS_CAST)
+    .filter((e): e is CastEvent => e.type === EventType.Cast)
+    .find(Boolean);
+}
